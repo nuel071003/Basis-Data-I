@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<!-- Mirrored from hfis.bpjs-kesehatan.go.id/hfis/Preassesment/PreassesmentFKTP by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 07 Feb 2024 16:29:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+        <meta charset="utf-8">
+        <!-- Latest compiled and minified CSS -->
+<meta name="viewport" content="width=device-width" initial-scale="1" maximum-scale="1">
+<link rel="shortcut icon" href="../assets/img/pavicon.ico">
+
+
+<!-- <script src="https://hfis.bpjs-kesehatan.go.id/hfis/assets/js/jquery.min.js"></script> -->
+<script src="../assets/js/jquery-3.6.0.min.js"></script>
+
+
+<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
+
+<!-- Latest compiled and minified CSS -->
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
+
+<!-- Optional theme -->
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous"> -->
+
+<!-- Latest compiled and minified JavaScript -->
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script> -->
+<!-- Optional theme -->
+<link rel="stylesheet" href="../assets/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../assets/css/nvcustom.css">
+<link rel="stylesheet" href="../assets/css/sticky-footer.css">
+
+<link rel="stylesheet" href="../assets/css/bootstrap-datepicker3.min.css">
+
+<!-- SmartMenus jQuery Bootstrap Addon CSS -->
+<link href="../assets/css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
+
+<!-- Upload -->
+<link href="../assets/css/uploadfile.css" rel="stylesheet">
+<script type="text/javascript">
+    var baseurl = "../index.html";
+</script>
+
+
+<!-- Datatable -->
+<link rel="stylesheet" type="text/css" href="../assets/css/datatables.min.css"/>
+
+<script type="text/javascript" src="../assets/js/datatables.min.js"></script>
+<script type="text/javascript" src="../assets/js/dataTables.checkboxes.min.js"></script>
+<style type="text/css">
+    #posts tr td {
+        height: 10px;
+        padding: 3px 0 3px 5px;
+        font-size: 12px;
+    }
+</style>
+
+<!-- Upload -->
+<script src="../assets/js/jquery.uploadfile.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/notify.min.js"></script>
+<script src="../assets/js/notify-bootstrap.js"></script>
+<script src="../assets/js/bootstrap-datepicker.min.js"></script>
+<script src="../assets/js/bootbox.min.js"></script>
+
+<script src="../assets/js/inputmask.js" type="text/javascript"></script>
+<script src="../assets/js/jquery.inputmask.js" type="text/javascript"></script>
+
+<!-- SmartMenus jQuery plugin -->
+<script type="text/javascript" src="../assets/js/jquery.smartmenus.js"></script>
+
+<!-- SmartMenus jQuery Bootstrap Addon -->
+<script type="text/javascript" src="../assets/js/jquery.smartmenus.bootstrap.js"></script>
+
+<!-- Clockpicker -->
+<!-- SmartMenus jQuery Bootstrap Addon CSS -->
+<link href="../assets/css/bootstrap-clockpicker.min.css" rel="stylesheet">
+<link href="../assets/css/github.min.css" rel="stylesheet">
+<script src="../assets/js/bootstrap-clockpicker.min.js"></script>
+
+<title>:Health Facilities Information System (H.F.I.S):</title>
+
+<link href="../assets/css/select2.min.css" rel="stylesheet" />
+<script src="../assets/js/select2.min.js"></script>
+
+<link href="../assets/css/pks_print.css" rel="stylesheet" />
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".npwpformat").inputmask("mask", {"mask": "99.999.999.9-999.999"});
+        $(".hpformat").inputmask("mask", {"mask": "(+62) 999-9999-99999"});
+        $(".telpformat").inputmask("mask", {"mask": "(9999) 9999-9999"});
+        
+    });
+    function showLoading(text)
+    {
+        if (jQuery('body').find('#resultLoading').attr('id') != 'resultLoading') {
+            jQuery('body').append('<div id="resultLoading" style="display:none"><div><img src="../assets/img/ajax-loader.gif"><div>Loading...</div></div><div class="bg"></div></div>');
+        }
+
+        jQuery('#resultLoading').css({
+            'width': '100%',
+            'height': '100%',
+            'position': 'fixed',
+            'z-index': '10000',
+            'top': '0',
+            'left': '0',
+            'right': '0',
+            'bottom': '0',
+            'margin': 'auto'
+        });
+
+        jQuery('#resultLoading .bg').css({
+            'background': '#000000',
+            'opacity': '0.7',
+            'width': '100%',
+            'height': '100%',
+            'position': 'absolute',
+            'top': '0'
+        });
+
+        jQuery('#resultLoading>div:first').css({
+            'width': '250px',
+            'height': '75px',
+            'text-align': 'center',
+            'position': 'fixed',
+            'top': '0',
+            'left': '0',
+            'right': '0',
+            'bottom': '0',
+            'margin': 'auto',
+            'font-size': '16px',
+            'z-index': '10',
+            'color': '#ffffff'
+
+        });
+
+        jQuery('#resultLoading .bg').height('100%');
+        jQuery('#resultLoading').fadeIn(300);
+        jQuery('body').css('cursor', 'wait');
+    }
+
+    function hideLoading()
+    {
+        jQuery('#resultLoading .bg').height('100%');
+        jQuery('#resultLoading').fadeOut(300);
+        jQuery('body').css('cursor', 'default');
+    }
+</script>
+
+<style>
+    body{
+        background-image: url("../assets/img/bg.jpg");
+    }
+    #return-to-top {
+        position: fixed;
+        bottom: 53px;
+        right: 20px;
+        background: rgb(0, 0, 0);
+        background: rgba(0, 0, 0, 0.7);
+        width: 35px;
+        height: 35px;
+        display: block;
+        text-decoration: none;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        border-radius: 15px;
+        display: none;
+        -webkit-transition: all 0.3s linear;
+        -moz-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+    #return-to-top i {
+        color: #fff;
+        margin: 0;
+        position: relative;
+        left: 9px;
+        top: 10px;
+        font-size: 19px;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+    #return-to-top:hover {
+        background: rgba(0, 0, 0, 0.9);
+    }
+    #return-to-top:hover i {
+        color: #fff;
+        top: 5px;
+    }
+</style>
+
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html"><img src="../assets/img/bpjs1.png"></a>            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div style="margin-bottom: 70px;"></div>        <div class="container">
+            <div class="panel panel-success form-horizontal"> 
+                <div class="panel-heading">
+                    <b class="panel-title"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Form Penapisan Awal FKTP</b>
+                </div>
+                <div class="panel-body">
+                    <form id="form" method="POST" action="https://hfis.bpjs-kesehatan.go.id/hfis/Preassesment/SimpanPreassesmentFKTP">
+                        <div class="panel panel-success form-horizontal">
+                            <div class="panel-body">
+                            <input id="latitude" type="hidden" class="form-control input-sm" name="latitude" value="" maxlength="100">
+                            <input id="longitude" type="hidden" class="form-control input-sm" name="longitude" value="" maxlength="100">
+                                <div class="col-sm-12">                                
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <div class="col-sm-3" style="text-align: right"><label>Jenis Faskes <font style="color: red">*</font></label></div>
+                                            <div class="col-sm-6">
+                                                <div class="select2-wrapper">
+                                                    <select id="jnsFktp" class="col-sm-8 form-control input-sm" name="jnsPPK">
+                                                        <option></option>
+                                                                                                                    <option value="1">Puskesmas</option>
+                                                                                                                    <option value="B">Klinik Pratama</option>
+                                                                                                                    <option value="G">Dokter gigi</option>
+                                                                                                                    <option value="U">Dokter Umum</option>
+                                                                                                                    <option value="B1">RS Kelas D Pratama</option>
+                                                                                                            </select>
+                                                    <div id="notJnsFktp"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <div class="col-sm-3" style="text-align: right"><label>Email <font style="color: red">*</font></label></div>
+                                            <div class="col-sm-6">
+                                                <input id="email" type="text" class="form-control input-sm" placeholder="Email" name="email" value="" maxlength="100">
+                                                <div id="notEmail"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-3" style="text-align: right"><label>Kepemilikan <font style="color: red">*</font></label></div>
+                                            <div class="col-sm-6">
+                                                <div class="select2-wrapper">
+                                                    <select id="jnsPemilik" class="col-sm-8 form-control input-sm" name="jnsPemilik">
+                                                        <option></option>
+                                                                                                                    <option value="1">TNI AL</option>
+                                                                                                                    <option value="2">TNI AD</option>
+                                                                                                                    <option value="3">TNI AU</option>
+                                                                                                                    <option value="4">POLRI</option>
+                                                                                                                    <option value="B">BUMN</option>
+                                                                                                                    <option value="D">PemKab</option>
+                                                                                                                    <option value="P">PemProv</option>
+                                                                                                                    <option value="S">Swasta</option>
+                                                                                                                    <option value="V">Vertikal</option>
+                                                                                                            </select>
+                                                    <div id="notJnsPemilik"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="fnpwp">
+                                            <div class="col-sm-3" style="text-align: right"><label>NPWP <font style="color: red">*</font></label></div>
+                                            <div class="col-sm-6">
+                                                <input id="npwp" type="text" class="form-control input-sm npwpformat" placeholder="NPWP" name="npwp" value="" maxlength="20">
+                                                <div id="notNpwp"></div>
+                                            </div>
+                                        </div>
+                                        <div id="fnomorsio">
+                                            <div class="form-group">
+                                                <!-- <div class="row"> -->
+                                                    <div class="col-sm-3" style="text-align: right"><label>Surat Izin Operasional (SIO) <font style="color: red">*</font></label></div>
+                                                    <div class="col-sm-6">
+                                                        <input id="nomorsio" type="text" class="form-control input-sm" placeholder="Nomor SIO" name="nomorsio" value="" maxlength="100">
+                                                        <div id="notSio"></div>
+                                                    </div>
+                                                <!-- </div> -->
+                                            </div>
+                                            <div class="form-group">
+                                                <!-- <div class="row"> -->
+                                                <div class="col-sm-3" style="text-align: right"><label>SIO Berlaku Sampai Dengan <font style="color: red">*</font></label></div>
+                                                    <div class="col-sm-6">
+                                                        <div class="tgl input-group date">
+                                                            <input readonly="" id="tatsio" class="form-control input-sm" name="tatsio" size="16" type="text" placeholder="Berlaku Sampai" value="">
+                                                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                                        </div>
+                                                        <div id="notTatsio"></div>
+                                                    </div>
+                                                <!-- </div> -->
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="fakreditasi">
+                                            <div class="col-sm-3" style="text-align: right"><label>Akreditasi <font style="color: red">*</font></label></div>
+                                            <div class="col-sm-6">
+                                                <div class="select2-wrapper">
+                                                    <select id="akreditasi" class="col-sm-8 form-control input-sm" name="akreditasi">
+                                                        <option></option>
+                                                        <option value="1">Ya</option>
+                                                        <option value="0">Tidak</option>
+                                                    </select>
+                                                    <div id="notAkreditasi"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="fregistrasi">
+                                            <div class="col-sm-3" style="text-align: right"><label>Registrasi Kemenkes <font style="color: red">*</font></label></div>
+                                            <div class="col-sm-6">
+                                                <div class="select2-wrapper">
+                                                    <select id="registrasi" class="col-sm-8 form-control input-sm" name="registrasi">
+                                                        <option></option>
+                                                        <option value="1">Ya</option>
+                                                        <option value="0">Tidak</option>
+                                                    </select>
+                                                    <div id="notRegistrasi"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="fjumlahdu">
+                                            <div class="col-sm-3" style="text-align: right"><label>Jumlah Dokter Umum <font style="color: red">*</font></label></div>
+                                            <div class="col-sm-6">
+                                                <input id="jumlahdu" type="text" class="form-control input-sm num" placeholder="Jumlah Dokter Umum" name="jumlahdu" value="" maxlength="3">
+                                                <div id="notJumlahDU"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="fjumlahdg">
+                                            <div class="col-sm-3" style="text-align: right"><label>Jumlah Dokter Gigi <font style="color: red">*</font></label></div>
+                                            <div class="col-sm-6">
+                                                <input id="jumlahdg" type="text" class="form-control input-sm num" placeholder="Jumlah Dokter Gigi" name="jumlahdg" value="" maxlength="3">
+                                                <div id="notJumlahDG"></div>
+                                            </div>
+                                        </div>
+                                        <div id="fnomorsip">
+                                            <div class="form-group">
+                                                <!-- <div class="row"> -->
+                                                    <div class="col-sm-3" style="text-align: right"><label>Surat Izin Praktek (SIP) <font style="color: red">*</font></label></div>
+                                                    <div class="col-sm-6">
+                                                        <input id="nomorsip" type="text" class="form-control input-sm" placeholder="Nomor SIP" name="nomorsip" value="" maxlength="100">
+                                                        <div id="notSip"></div>
+                                                    </div>
+                                                <!-- </div> -->
+                                            </div>
+                                            <div class="form-group">
+                                                <!-- <div class="row"> -->
+                                                <div class="col-sm-3" style="text-align: right"><label>Berlaku Sampai Dengan <font style="color: red">*</font></label></div>
+                                                    <div class="col-sm-6">
+                                                        <div class="tgl input-group date">
+                                                            <input readonly="" id="tatsip" class="form-control input-sm" name="tatsip" size="16" type="text" placeholder="Berlaku Sampai" value="">
+                                                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                                        </div>
+                                                        <div id="notTatsio"></div>
+                                                    </div>
+                                                <!-- </div> -->
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="fjejaringlab">
+                                            <div class="col-sm-3" style="text-align: right"><label>PKS Jejaring Laboratorium <font style="color: red">*</font></label></div>
+                                            <div class="col-sm-6">
+                                                <div class="select2-wrapper">
+                                                    <select id="jejaringlab" class="col-sm-8 form-control input-sm" name="jejaringlab">
+                                                        <option></option>
+                                                        <option value="1">Ya</option>
+                                                        <option value="0">Tidak</option>
+                                                    </select>
+                                                    <div id="notJejaringLab"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-3" style="text-align: right"><label>PKS Jejaring Apotek <font style="color: red">*</font></label></div>
+                                            <div class="col-sm-6">
+                                                <div class="select2-wrapper">
+                                                    <select id="jejaringapotek" class="col-sm-8 form-control input-sm" name="jejaringapotek">
+                                                        <option></option>
+                                                        <option value="1">Ya</option>
+                                                        <option value="0">Tidak</option>
+                                                    </select>
+                                                    <div id="notJejaringApotek"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="fjejaringbidan">
+                                            <div class="col-sm-3" style="text-align: right"><label>PKS Jejaring Bidan <font style="color: red">*</font></label></div>
+                                            <div class="col-sm-6">
+                                                <div class="select2-wrapper">
+                                                    <select id="jejaringbidan" class="col-sm-8 form-control input-sm" name="jejaringbidan">
+                                                        <option></option>
+                                                        <option value="1">Ya</option>
+                                                        <option value="0">Tidak</option>
+                                                    </select>
+                                                    <div id="notJejaringBidan"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="alert alert-success">
+                                                        <a class="close" data-dismiss="alert" href="#">&times;</a>
+                                                        <b>INFO :</b> Pindahkan marker point (tanda warna merah) di map untuk menentukan <i>Latitude</i> dan <i>Longitude</i> sesuai dengan lokasi faskes Anda berada.
+                                                        <br />Zoom sampai titik terendah lokasi Anda di peta.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <!-- <div class="col-sm-2" style="text-align: right">Maps : </div> -->
+                                                <div class="col-sm-12">
+                                                    <div id="peta" class="panel panel-info form-horizontal">
+                                                        
+<head>
+    <meta charset="utf-8">    
+</head>
+<script type="text/javascript">
+    var centreGot = false;
+</script>
+
+				<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaKUnpfz6RDnypc9BQ6pgkfLs5mnWF-Zk&amp;sensor=true&amp;language=id"></script>
+			<script type="text/javascript">
+			//<![CDATA[
+			
+			var map; // Global declaration of the map
+			var lat_longs_map = new Array();
+			var markers_map = new Array();
+            var iw_map;
+			
+			iw_map = new google.maps.InfoWindow();
+				
+				 function initialize_map() {
+				
+				var myLatlng = new google.maps.LatLng(-6.168279,106.874030);
+				var myOptions = {
+			  		zoom: 17,
+					center: myLatlng,
+			  		mapTypeId: google.maps.MapTypeId.ROADMAP}
+				map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+				
+			var myLatlng = new google.maps.LatLng(-6.168279,106.874030);
+				
+			var markerOptions = {
+				map: map,
+				position: myLatlng,
+				draggable: true		
+			};
+			marker_0 = createMarker_map(markerOptions);
+			
+				google.maps.event.addListener(marker_0, "dragend", function(event) {
+					$('#latitude').val(event.latLng.lat()); $('#longitude').val(event.latLng.lng()); getdati2();
+				});
+				
+			
+			}
+		
+		
+		function createMarker_map(markerOptions) {
+			var marker = new google.maps.Marker(markerOptions);
+			markers_map.push(marker);
+			lat_longs_map.push(marker.getPosition());
+			return marker;
+		}
+		
+			google.maps.event.addDomListener(window, "load", initialize_map);
+			
+			//]]>
+			</script><div id="map_canvas" style="width:100%; height:450px;"></div>                                                    </div>
+                                                    <div class="alert alert-danger alert-dismissible">
+                                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                                        <strong>Pastikan titik lokasi Faskes Anda sudah tepat dan sesuai!</strong>
+                                                    </div> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-3" style="text-align: left"><label>Propinsi <font style="color: red">*</font></label></div>
+                                            <div class="col-sm-6">
+                                            <input readonly="true" id="namaprop" type="text" class="form-control input-sm" placeholder="Propinsi" name="namaprop" value="" maxlength="100">
+                                            <input readonly="true" id="prop" type="hidden" class="form-control input-sm" name="prop" value="" maxlength="100">
+                                                <!-- <div class="select2-wrapper">
+                                                    <select id="prop" class="col-sm-8 form-control input-sm" name="prop">
+                                                        <option></option>
+                                                                                                                    <option value="01">NANGGROE ACEH DARUSSALAM</option>
+                                                                                                                    <option value="02">SUMATERA UTARA</option>
+                                                                                                                    <option value="03">SUMATERA BARAT</option>
+                                                                                                                    <option value="04">RIAU</option>
+                                                                                                                    <option value="05">JAMBI</option>
+                                                                                                                    <option value="06">SUMATERA SELATAN</option>
+                                                                                                                    <option value="07">BENGKULU</option>
+                                                                                                                    <option value="08">LAMPUNG</option>
+                                                                                                                    <option value="09">KEP. BANGKA BELITUNG</option>
+                                                                                                                    <option value="10">DKI JAKARTA</option>
+                                                                                                                    <option value="11">JAWA BARAT</option>
+                                                                                                                    <option value="12">JAWA TENGAH</option>
+                                                                                                                    <option value="13">D I  YOGYAKARTA</option>
+                                                                                                                    <option value="14">JAWA TIMUR</option>
+                                                                                                                    <option value="15">BANTEN</option>
+                                                                                                                    <option value="16">BALI</option>
+                                                                                                                    <option value="17">NUSA TENGGARA BARAT</option>
+                                                                                                                    <option value="18">NUSA TENGGARA TIMUR</option>
+                                                                                                                    <option value="19">KALIMANTAN BARAT</option>
+                                                                                                                    <option value="20">KALIMANTAN TENGAH</option>
+                                                                                                                    <option value="21">KALIMANTAN SELATAN</option>
+                                                                                                                    <option value="22">KALIMANTAN TIMUR</option>
+                                                                                                                    <option value="23">SULAWESI UTARA</option>
+                                                                                                                    <option value="24">SULAWESI TENGAH</option>
+                                                                                                                    <option value="25">SULAWESI SELATAN</option>
+                                                                                                                    <option value="26">SULAWESI TENGGARA</option>
+                                                                                                                    <option value="27">GORONTALO</option>
+                                                                                                                    <option value="28">MALUKU</option>
+                                                                                                                    <option value="29">MALUKU UTARA</option>
+                                                                                                                    <option value="30">PAPUA</option>
+                                                                                                                    <option value="31">PAPUA BARAT</option>
+                                                                                                                    <option value="32">SULAWESI BARAT</option>
+                                                                                                                    <option value="33">KEPULAUAN RIAU</option>
+                                                                                                                    <option value="34">KALIMANTAN UTARA</option>
+                                                                                                                    <option value="99">LUAR NEGERI</option>
+                                                                                                            </select>
+                                                    <div id="notProp"></div>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-3" style="text-align: left"><label>Kabupaten/Kota <font style="color: red">*</font></label></div>
+                                            <div class="col-sm-6">
+                                            <input readonly="true" id="namadati2" type="text" class="form-control input-sm" placeholder="Kabupaten/Kota" name="namadati2" value="" maxlength="100">
+                                            <input readonly="true" id="dati2" type="hidden" class="form-control input-sm" name="dati2" value="" maxlength="100">
+                                                <!-- <div class="select2-wrapper">
+                                                    <select id="dati2" class="col-sm-8 form-control input-sm" name="dati2">
+                                                    </select>
+                                                    <div id="notDati2"></div>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-3" style="text-align: left"><label>Alamat <font style="color: red">*</font></label></div>
+                                            <div class="col-sm-6">
+                                                <textarea id="alamat" type="text" class="form-control input-sm" name="alamat" value="" maxlength="100"></textarea>
+                                                <div id="notAlamat"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div id="viewcapthca"></div>
+                                        </div>
+                                        <div class="form-group" style="margin-top: 15px;">
+                                            <div class="row">
+                                                <div class="col-xs-3"></div>
+                                                <div class="col-xs-3">
+                                                    <center>
+                                                        <input id="login-captcha" type="text" class="form-control input-sm" name="captcha" placeholder="captcha" title="Masukkan 6 digit kode verifikasi di atas" required>                                            
+                                                    </center>
+                                                    <div id="notCaptcha"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-xs-3"></div>
+                                                <div class="col-sm-6">
+                                                    <button id="btn-preassesment" onclick="PreAssesment()" class="btn btn-success btn-sm" type="button"><span class="glyphicon glyphicon-check"></span> Cek Penapisan Awal</button>
+                                                    <button id="btn-reset" style="display: none" onclick="ResetPreAssesment()" class="btn btn-info btn-sm" type="button"><span class="glyphicon glyphicon-refresh"></span> Ulangi</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <div id="resultpreassesment"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
+                    </form>
+
+                </div>
+            </div>            
+        </div>
+        <div style="margin-top: 40px;"></div>
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+    <div class="container" style="padding-top: 10px;">
+        <div class="navbar-left">
+            <p style="text-align: right; font-size: 12px;">
+               &#169; BPJS Kesehatan 2018 
+            </p>
+        </div>
+        <div class="navbar-right">
+            <p style="text-align: right; font-size: 10px;">
+            Page rendered in <strong>0.2433</strong> seconds.
+            Memory Usage <strong>5.3MB</strong>
+            </p>
+        </div>
+    </div>
+</nav>    </body>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            LoadCaptcha();
+        });
+
+        $('select').select2({placeholder: "--Pilih--", allowClear: true});
+        var startDate = new Date('01/01/2012');
+        var FromEndDate = new Date();
+        var ToEndDate = new Date();
+
+        ToEndDate.setDate(ToEndDate.getDate() + 2190);
+
+        $('.tgl').datepicker({
+
+            weekStart: 1,
+            format: 'yyyy-mm-dd',
+            startDate: '2012-01-01',
+            //            endDate: FromEndDate,
+            autoclose: true
+        })
+                .on('changeDate', function (selected) {
+                    startDate = new Date(selected.date.valueOf());
+                    startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
+                });
+
+        function IsEmail(email) {
+            var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if (!regex.test(email)) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        $("#prop").change(function () {
+            var prop = $("#prop").select2("val");
+            showLoading();
+            $.ajax({
+                type: "POST",
+                url: "https://hfis.bpjs-kesehatan.go.id/hfis/PreAssesment/getKabupaten/" + prop,
+                dataType: "json",
+                success: function (msg) {
+                    hideLoading();
+                    $("#dati2").select2("val", "");
+                    $("#dati2").empty();
+                    $("#dati2").append("<option value=\'\'></option>");
+                    $.each(msg, function (index, dati) {
+                        $("#dati2").append("<option value=\'" + dati.KDDATI2 + "\'>" + dati.NMDATI2 + "</option>");
+                    });
+                }
+            });
+        });
+        $("#jnsFktp").change(function () {
+            var jnsfktp = $("#jnsFktp").select2("val");
+            var jnsPemilik = $("#jnsPemilik").select2("val");
+            if (jnsfktp == 'B' || jnsfktp == '1' || jnsfktp == 'B1') {
+                $('#fnomorsio').css('display', '');
+                $('#ftatsio').css('display', '');
+                $('#fakreditasi').css('display', '');
+                $('#fregistrasi').css('display', '');
+                $('#fjumlahdu').css('display', '');
+                $('#fjumlahdg').css('display', '');
+                $('#fnomorsip').css('display', 'none');
+                $('#fjejaringbidan').css('display', '');
+                $('#fjejaringlab').css('display', '');
+            } else if (jnsfktp == 'U') {
+                $('#fnomorsio').css('display', 'none');
+                $('#ftatsio').css('display', 'none');
+                $('#fakreditasi').css('display', 'none');
+                $('#fregistrasi').css('display', 'none');
+                $('#fjumlahdu').css('display', 'none');
+                $('#fjumlahdg').css('display', 'none');
+                $('#fnomorsip').css('display', '');
+                $('#fjejaringbidan').css('display', '');
+                $('#fjejaringlab').css('display', '');
+            } else if (jnsfktp == 'G') {
+                $('#fnomorsio').css('display', 'none');
+                $('#ftatsio').css('display', 'none');
+                $('#fakreditasi').css('display', 'none');
+                $('#fregistrasi').css('display', 'none');
+                $('#fjumlahdu').css('display', 'none');
+                $('#fjumlahdg').css('display', 'none');
+                $('#fnomorsip').css('display', '');
+                $('#fjejaringbidan').css('display', 'none');
+                $('#fjejaringlab').css('display', 'none');
+            }
+            
+            if (jnsfktp == '1') {
+                $('#fnpwp').css('display', 'none');
+            } else  {
+                $('#fnpwp').css('display', '');
+            }
+        });
+
+        $("#jnsPemilik").change(function () {
+            var jnsPemilik = $("#jnsPemilik").select2("val");
+            var jnsfktp = $("#jnsFktp").select2("val");
+            if (jnsfktp == '1') {
+                $('#fnpwp').css('display', 'none');
+            } else if (jnsfktp != '1' && jnsPemilik == 'S') {
+                $('#fnpwp').css('display', '');
+            } else  {
+                $('#fnpwp').css('display', 'none');
+            }
+        });
+
+        function getdati2(){
+            var lat = $("#latitude").val();
+            var lng = $("#longitude").val();
+            $.ajax({
+                type: "POST",
+                data: {lat: lat, lng: lng},
+                url: "https://hfis.bpjs-kesehatan.go.id/hfis/PreAssesment/getKabupaten",
+                dataType: "json",
+                beforeSend: function() {
+                    showLoading();
+                },
+                success: function (msg) {
+                    hideLoading();
+                    $("#prop").val(msg.kdprop);
+                    $("#namaprop").val(msg.prov);
+                    $("#dati2").val(msg.kddati2);
+                    $("#namadati2").val(msg.kab);
+                }
+            });
+        }
+
+        function PreAssesment() {
+            var jnsppk = $("#jnsFktp").select2("val");
+            var propppk = $("#propppk").val();
+            var dati2 = $("#dati2").val();
+            var email = $("#email").val();
+            var alamat = $("#alamat").val();
+            var jnsPemilik = $("#jnsPemilik").val();
+            var npwp = $("#npwp").val();
+
+            var sio = $("#nomorsio").val();
+            var tatsio = $("#tatsio").val();
+
+            var akreditasi = $("#akreditasi").val();
+            var registrasi = $("#registrasi").val();
+            var jumlahdu = $("#jumlahdu").val();
+            var jumlahdg = $("#jumlahdg").val();
+            var jejaringlab = $("#jejaringlab").val();
+            var jejaringapotek = $("#jejaringapotek").val();
+            var jejaringbidan = $("#jejaringbidan").val();
+
+            var sip = $("#nomorsip").val();
+            var tatsip = $("#tatsip").val();
+
+            var captcha = $("#login-captcha").val();
+
+            var npwp = $("#npwp").val();
+            var npwp1 = npwp.replace(".", "");
+            var npwp2 = npwp1.replace("-", "");
+            var npwp3 = npwp2.replace("_", "");
+
+            if (jnsppk == "") {
+                alert("Jenis faskes tidak boleh kosong");
+            } else if (dati2 == "" || dati2 == null) {
+                // $("#notDati2").notify("Kabupaten/Kota tidak boleh kosong");
+                alert("Kabupaten/Kota tidak boleh kosong");
+            } else if (email == "") {
+                alert("Email tidak boleh kosong dan harus sesuai format email");
+            } else if (!IsEmail(email)) {
+                alert("Email harus sesuai format email");
+            } else if (alamat == "") {
+                alert("Alamat tidak boleh kosong");
+            } else if (jnsPemilik == "") {
+                alert("Kepemilikan tidak boleh kosong");
+            } else if (npwp == "" && jnsPemilik=="S") {
+                alert("Nomor NPWP tidak boleh kosong");
+            } else if (npwp3.length != 18 && jnsPemilik=="S") {
+                alert("Nomor NPWP harus lengkap");
+            } else if (sio == "" && (jnsppk == "1" || jnsppk == "B" || jnsppk == "B1")) {
+                alert("Surat Ijin Operasional (SIO) tidak boleh kosong");
+            } else if (tatsio == "" && (jnsppk == "1" || jnsppk == "B" || jnsppk == "B1")) {
+                alert("Masa berlaku Surat Ijin Operasional (SIO) tidak boleh kosong");
+            }  else if (akreditasi == "" && (jnsppk == "1" || jnsppk == "B" || jnsppk == "B1")) {
+                alert("Akreditasi tidak boleh kosong");
+            } else if (registrasi == "" && (jnsppk == "1" || jnsppk == "B" || jnsppk == "B1")) {
+                alert("Registrasi tidak boleh kosong");
+            } else if (jumlahdu == "" && (jnsppk == "1" || jnsppk == "B" || jnsppk == "B1")) {
+                alert("Jumlah Dokter Umum tidak boleh kosong");
+            } else if (jumlahdg == "" && (jnsppk == "1" || jnsppk == "B" || jnsppk == "B1")) {
+                alert("Jumlah Dokter Gigi tidak boleh kosong");
+            } else if (jejaringlab == "" && jnsppk != "G") {
+                alert("Jejaring Lab tidak boleh kosong");
+            } else if (jejaringapotek == "") {
+                alert("Jejaring Apotek tidak boleh kosong");
+            } else if (jejaringbidan == "" && jnsppk != "G") {
+                alert("Jejaring Bidan tidak boleh kosong");
+            } else if (captcha == "") {
+                alert("Lengkapi data Anda dan silahkan isi captcha untuk melanjutkan");
+            } else {
+                var r = confirm("Apakah Anda yakin?");
+                if (r == true) {
+                    SimpanPreAssesment(this);
+                }
+            }
+        }
+
+        function LoadCaptcha() {
+            $.ajax({
+                url: "https://hfis.bpjs-kesehatan.go.id/hfis/Preassesment/captcha",
+                type: "POST",
+                success: function(msg) {
+                    $("#viewcapthca").html(msg);
+                },
+                error: function(data) {
+                    alert("Error! Terjadi kesalahan, ulangi lagi.");
+                }
+            });
+        }
+
+        function ResetPreAssesment() {
+            location.reload();
+                    }
+
+        function SimpanPreAssesment(e) {
+            showLoading();
+            $("#form").submit(function (e)
+            {
+                var postData = $(this).serializeArray();
+                var formURL = $(this).attr("action");
+                $.ajax(
+                        {
+                            url: formURL,
+                            type: "POST",
+                            data: new FormData(this),
+                            processData: false,
+                            contentType: false,
+                            cache: false,
+                            async: false,
+                            beforeSend: function() {
+                                showLoading();
+                            },
+                            success: function (msg)
+                            {
+                                hideLoading();
+                                var message = msg.split('##');
+                                if (message[0] == 0) {
+                                    LoadCaptcha();
+                                    alert(message[1]);
+                                } else {
+                                    $("#jnsFktp").attr('disabled', true);
+                                    $("#prop").attr('disabled', true);
+                                    $("#dati2").attr('disabled', true);
+                                    $("#email").attr('disabled', true);
+                                    $("#alamat").attr('disabled', true);
+                                    $("#jnsPemilik").attr('disabled', true);
+                                    $("#npwp").attr('disabled', true);                                
+                                    $("#nomorsio").attr('disabled', true);
+                                    $("#tatsio").attr('disabled', true);
+                                    $("#akreditasi").attr('disabled', true);
+                                    $("#registrasi").attr('disabled', true);
+                                    $("#jumlahdu").attr('disabled', true);
+                                    $("#jumlahdg").attr('disabled', true);
+                                    $("#jejaringlab").attr('disabled', true);
+                                    $("#jejaringapotek").attr('disabled', true);
+                                    $("#jejaringbidan").attr('disabled', true);
+                                    $("#nomorsip").attr('disabled', true);
+                                    $("#tatsip").attr('disabled', true);
+
+                                    $("#btn-preassesment").attr('disabled', true);
+                                    $("#btn-reset").css('display', '');
+                                    $("#resultpreassesment").html(msg);                                    
+                                }
+                            },
+                            error: function (data)
+                            {
+                                alert("Error! Terjadi kesalahan, cek data Anda dan ulangi lagi.");
+                                hideLoading();
+                            }
+                        });
+                //                $("form").off("submit").submit();
+                e.preventDefault(); //STOP default action
+                e.unbind(); //unbind. to stop multiple form submit.
+            });
+            $("#form").submit(); //Submit  the FORM
+        }
+
+        $('.num').keypress(function (e) {
+            var charCode = e.which || e.keyCode;
+            if ((charCode >= 48 && charCode <= 57)) {
+                return true;
+            }
+            return false;
+        });
+    </script>
+
+<!-- Mirrored from hfis.bpjs-kesehatan.go.id/hfis/Preassesment/PreassesmentFKTP by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 07 Feb 2024 16:29:54 GMT -->
+</html>

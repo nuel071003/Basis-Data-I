@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from hfis.bpjs-kesehatan.go.id/hfis/MonitoringPendaftaran/dataFaskesTerdaftar by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 07 Feb 2024 16:29:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <!-- Latest compiled and minified CSS -->
+<meta name="viewport" content="width=device-width" initial-scale="1" maximum-scale="1">
+<link rel="shortcut icon" href="../assets/img/pavicon.ico">
+
+
+<!-- <script src="https://hfis.bpjs-kesehatan.go.id/hfis/assets/js/jquery.min.js"></script> -->
+<script src="../assets/js/jquery-3.6.0.min.js"></script>
+
+
+<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
+
+<!-- Latest compiled and minified CSS -->
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
+
+<!-- Optional theme -->
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous"> -->
+
+<!-- Latest compiled and minified JavaScript -->
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script> -->
+<!-- Optional theme -->
+<link rel="stylesheet" href="../assets/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../assets/css/nvcustom.css">
+<link rel="stylesheet" href="../assets/css/sticky-footer.css">
+
+<link rel="stylesheet" href="../assets/css/bootstrap-datepicker3.min.css">
+
+<!-- SmartMenus jQuery Bootstrap Addon CSS -->
+<link href="../assets/css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
+
+<!-- Upload -->
+<link href="../assets/css/uploadfile.css" rel="stylesheet">
+<script type="text/javascript">
+    var baseurl = "../index.html";
+</script>
+
+
+<!-- Datatable -->
+<link rel="stylesheet" type="text/css" href="../assets/css/datatables.min.css"/>
+
+<script type="text/javascript" src="../assets/js/datatables.min.js"></script>
+<script type="text/javascript" src="../assets/js/dataTables.checkboxes.min.js"></script>
+<style type="text/css">
+    #posts tr td {
+        height: 10px;
+        padding: 3px 0 3px 5px;
+        font-size: 12px;
+    }
+</style>
+
+<!-- Upload -->
+<script src="../assets/js/jquery.uploadfile.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/notify.min.js"></script>
+<script src="../assets/js/notify-bootstrap.js"></script>
+<script src="../assets/js/bootstrap-datepicker.min.js"></script>
+<script src="../assets/js/bootbox.min.js"></script>
+
+<script src="../assets/js/inputmask.js" type="text/javascript"></script>
+<script src="../assets/js/jquery.inputmask.js" type="text/javascript"></script>
+
+<!-- SmartMenus jQuery plugin -->
+<script type="text/javascript" src="../assets/js/jquery.smartmenus.js"></script>
+
+<!-- SmartMenus jQuery Bootstrap Addon -->
+<script type="text/javascript" src="../assets/js/jquery.smartmenus.bootstrap.js"></script>
+
+<!-- Clockpicker -->
+<!-- SmartMenus jQuery Bootstrap Addon CSS -->
+<link href="../assets/css/bootstrap-clockpicker.min.css" rel="stylesheet">
+<link href="../assets/css/github.min.css" rel="stylesheet">
+<script src="../assets/js/bootstrap-clockpicker.min.js"></script>
+
+<title>:Health Facilities Information System (H.F.I.S):</title>
+
+<link href="../assets/css/select2.min.css" rel="stylesheet" />
+<script src="../assets/js/select2.min.js"></script>
+
+<link href="../assets/css/pks_print.css" rel="stylesheet" />
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".npwpformat").inputmask("mask", {"mask": "99.999.999.9-999.999"});
+        $(".hpformat").inputmask("mask", {"mask": "(+62) 999-9999-99999"});
+        $(".telpformat").inputmask("mask", {"mask": "(9999) 9999-9999"});
+        
+    });
+    function showLoading(text)
+    {
+        if (jQuery('body').find('#resultLoading').attr('id') != 'resultLoading') {
+            jQuery('body').append('<div id="resultLoading" style="display:none"><div><img src="../assets/img/ajax-loader.gif"><div>Loading...</div></div><div class="bg"></div></div>');
+        }
+
+        jQuery('#resultLoading').css({
+            'width': '100%',
+            'height': '100%',
+            'position': 'fixed',
+            'z-index': '10000',
+            'top': '0',
+            'left': '0',
+            'right': '0',
+            'bottom': '0',
+            'margin': 'auto'
+        });
+
+        jQuery('#resultLoading .bg').css({
+            'background': '#000000',
+            'opacity': '0.7',
+            'width': '100%',
+            'height': '100%',
+            'position': 'absolute',
+            'top': '0'
+        });
+
+        jQuery('#resultLoading>div:first').css({
+            'width': '250px',
+            'height': '75px',
+            'text-align': 'center',
+            'position': 'fixed',
+            'top': '0',
+            'left': '0',
+            'right': '0',
+            'bottom': '0',
+            'margin': 'auto',
+            'font-size': '16px',
+            'z-index': '10',
+            'color': '#ffffff'
+
+        });
+
+        jQuery('#resultLoading .bg').height('100%');
+        jQuery('#resultLoading').fadeIn(300);
+        jQuery('body').css('cursor', 'wait');
+    }
+
+    function hideLoading()
+    {
+        jQuery('#resultLoading .bg').height('100%');
+        jQuery('#resultLoading').fadeOut(300);
+        jQuery('body').css('cursor', 'default');
+    }
+</script>
+
+<style>
+    body{
+        background-image: url("../assets/img/bg.jpg");
+    }
+    #return-to-top {
+        position: fixed;
+        bottom: 53px;
+        right: 20px;
+        background: rgb(0, 0, 0);
+        background: rgba(0, 0, 0, 0.7);
+        width: 35px;
+        height: 35px;
+        display: block;
+        text-decoration: none;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        border-radius: 15px;
+        display: none;
+        -webkit-transition: all 0.3s linear;
+        -moz-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+    #return-to-top i {
+        color: #fff;
+        margin: 0;
+        position: relative;
+        left: 9px;
+        top: 10px;
+        font-size: 19px;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+    #return-to-top:hover {
+        background: rgba(0, 0, 0, 0.9);
+    }
+    #return-to-top:hover i {
+        color: #fff;
+        top: 5px;
+    }
+</style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html"><img src="../assets/img/bpjs1.png"></a>            
+        </div>
+    </div><!-- /.container-fluid -->
+</nav>
+<div style="margin-bottom: 70px;"></div>    <div class="container">
+        <div class="panel panel-success form-horizontal">
+            <div class="panel-heading">
+                <b class="panel-title"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Monitoring Pendaftaran Faskes</b>
+            </div>
+            <div class="panel-body">
+                <form id="form" method="POST" action="https://hfis.bpjs-kesehatan.go.id/hfis/MonitoringPendaftaran/dataFaskesTerdaftar">
+                    <div class="form-group">
+                        <div class="col-sm-3"><label>* Provinsi</label></div>
+                        <div class="col-sm-3">
+                            <select id="prop" class="form-control input-sm" name="prop">
+                                <option></option>
+                                                                        <option value="01">NANGGROE ACEH DARUSSALAM</option>
+                                                                        <option value="02">SUMATERA UTARA</option>
+                                                                        <option value="03">SUMATERA BARAT</option>
+                                                                        <option value="04">RIAU</option>
+                                                                        <option value="05">JAMBI</option>
+                                                                        <option value="06">SUMATERA SELATAN</option>
+                                                                        <option value="07">BENGKULU</option>
+                                                                        <option value="08">LAMPUNG</option>
+                                                                        <option value="09">KEP. BANGKA BELITUNG</option>
+                                                                        <option value="10">DKI JAKARTA</option>
+                                                                        <option value="11">JAWA BARAT</option>
+                                                                        <option value="12">JAWA TENGAH</option>
+                                                                        <option value="13">D I  YOGYAKARTA</option>
+                                                                        <option value="14">JAWA TIMUR</option>
+                                                                        <option value="15">BANTEN</option>
+                                                                        <option value="16">BALI</option>
+                                                                        <option value="17">NUSA TENGGARA BARAT</option>
+                                                                        <option value="18">NUSA TENGGARA TIMUR</option>
+                                                                        <option value="19">KALIMANTAN BARAT</option>
+                                                                        <option value="20">KALIMANTAN TENGAH</option>
+                                                                        <option value="21">KALIMANTAN SELATAN</option>
+                                                                        <option value="22">KALIMANTAN TIMUR</option>
+                                                                        <option value="23">SULAWESI UTARA</option>
+                                                                        <option value="24">SULAWESI TENGAH</option>
+                                                                        <option value="25">SULAWESI SELATAN</option>
+                                                                        <option value="26">SULAWESI TENGGARA</option>
+                                                                        <option value="27">GORONTALO</option>
+                                                                        <option value="28">MALUKU</option>
+                                                                        <option value="29">MALUKU UTARA</option>
+                                                                        <option value="30">PAPUA</option>
+                                                                        <option value="31">PAPUA BARAT</option>
+                                                                        <option value="32">SULAWESI BARAT</option>
+                                                                        <option value="33">KEPULAUAN RIAU</option>
+                                                                        <option value="34">KALIMANTAN UTARA</option>
+                                                                        <option value="99">LUAR NEGERI</option>
+                                                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3"><label>* Kabupaten/Kota</label></div>
+                        <div class="col-sm-3">
+                            <select id="dati2" class="col-sm-8 form-control input-sm search-input-select" name="dati2" data-column="1">
+                                <option></option>
+                                                            </select>
+                            <div id="notDati2"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3"><label>* Jenis Faskes</label></div>
+                        <div class="col-sm-3">
+                            <select id="jnsForm" class="col-sm-8 form-control input-sm search-input-select" name="jnsForm" data-column="2">
+                                <option></option>
+                                                                    <option value="AAB">APOTIK PRB</option>
+                                                                    <option value="AAK">APOTIK KRONIS</option>
+                                                                    <option value="AAP">APOTIK PRB DAN KRONIS</option>
+                                                                    <option value="BBI">KLINIK PRATAMA RAWAT INAP</option>
+                                                                    <option value="BBP">KLINIK PRATAMA NON RAWAT INAP</option>
+                                                                    <option value="BDP">RS KELAS D PRATAMA</option>
+                                                                    <option value="BKM">BALAI KESEHATAN MASYARAKAT</option>
+                                                                    <option value="GDG">DOKTER GIGI</option>
+                                                                    <option value="KBB">RS KHUSUS BEDAH KELAS B</option>
+                                                                    <option value="KBC">RS KHUSUS BEDAH KELAS C</option>
+                                                                    <option value="KBK">RS KHUSUS KUSTA KELAS B</option>
+                                                                    <option value="KCB">RS KHUSUS JANTUNG KELAS B</option>
+                                                                    <option value="KCC">RS KHUSUS JANTUNG KELAS C</option>
+                                                                    <option value="KCK">RS KHUSUS KUSTA KELAS C</option>
+                                                                    <option value="KFB">RS KHUSUS INFEKSI KELAS B</option>
+                                                                    <option value="KGB">RS KHUSUS GIGI DAN MULUT KELAS B</option>
+                                                                    <option value="KGC">RS KHUSUS GIGI DAN MULUT KELAS C</option>
+                                                                    <option value="KHA">RS KHUSUS THT KELAS A</option>
+                                                                    <option value="KHB">RS KHUSUS THT KELAS B</option>
+                                                                    <option value="KHC">RS KHUSUS THT KELAS C</option>
+                                                                    <option value="KIB">RS KHUSUS IBU DAN ANAK KELAS B</option>
+                                                                    <option value="KIC">RS KHUSUS IBU DAN ANAK KELAS C</option>
+                                                                    <option value="KID">RS KHUSUS IBU DAN ANAK KELAS D</option>
+                                                                    <option value="KJB">RS KHUSUS JIWA KELAS B</option>
+                                                                    <option value="KJC">RS KHUSUS JIWA KELAS C</option>
+                                                                    <option value="KKA">RS KHUSUS KUSTA KELAS A</option>
+                                                                    <option value="KKB">RS KHUSUS KETERGANTUNGAN OBAT KELAS B</option>
+                                                                    <option value="KKC">RS KHUSUS KETERGANTUNGAN OBAT KELAS C</option>
+                                                                    <option value="KLB">RS KHUSUS LAIN KELAS B</option>
+                                                                    <option value="KLC">RS KHUSUS LAIN KELAS C</option>
+                                                                    <option value="KMB">RS KHUSUS MATA KELAS B</option>
+                                                                    <option value="KMC">RS KHUSUS MATA KELAS C</option>
+                                                                    <option value="KNB">RS KHUSUS GINJAL KELAS B</option>
+                                                                    <option value="KNC">RS KHUSUS GINJAL KELAS C</option>
+                                                                    <option value="KOB">RS KHUSUS KANKER (ONKOLOGI) KELAS B</option>
+                                                                    <option value="KOC">RS KHUSUS KANKER (ONKOLOGI) KELAS C</option>
+                                                                    <option value="KPB">RS KHUSUS PARU KELAS B</option>
+                                                                    <option value="KPC">RS KHUSUS PARU KELAS C</option>
+                                                                    <option value="KSA">RS KHUSUS STROKE KELAS A</option>
+                                                                    <option value="KSB">RS KHUSUS STROKE KELAS B</option>
+                                                                    <option value="KSC">RS KHUSUS STROKE KELAS C</option>
+                                                                    <option value="KTB">RS KHUSUS TULANG KELAS B</option>
+                                                                    <option value="KTC">RS KHUSUS TULANG KELAS C</option>
+                                                                    <option value="KUB">RS KHUSUS OTAK KELAS B</option>
+                                                                    <option value="KUC">RS KHUSUS OTAK KELAS C</option>
+                                                                    <option value="KXI">KLINIK UTAMA UMUM</option>
+                                                                    <option value="LAB">LABORATORIUM</option>
+                                                                    <option value="OOP">OPTIK</option>
+                                                                    <option value="PP1">PUSKESMAS NON RAWAT INAP</option>
+                                                                    <option value="PP2">PUSKESMAS RAWAT INAP</option>
+                                                                    <option value="RKB">RS KHUSUS BEDAH KELAS A</option>
+                                                                    <option value="RKC">RS KHUSUS JANTUNG KELAS A</option>
+                                                                    <option value="RKF">RS KHUSUS INFEKSI KELAS A</option>
+                                                                    <option value="RKG">RS KHUSUS GIGI DAN MULUT KELAS A</option>
+                                                                    <option value="RKI">RS KHUSUS IBU DAN ANAK KELAS A</option>
+                                                                    <option value="RKJ">RS KHUSUS JIWA KELAS A</option>
+                                                                    <option value="RKK">RS KHUSUS KETERGANTUNGAN OBAT KELAS A</option>
+                                                                    <option value="RKL">RS KHUSUS LAIN KELAS A</option>
+                                                                    <option value="RKM">RS KHUSUS MATA KELAS A</option>
+                                                                    <option value="RKN">RS KHUSUS GINJAL KELAS A</option>
+                                                                    <option value="RKO">RS KHUSUS KANKER (ONKOLOGI) KELAS A</option>
+                                                                    <option value="RKP">RS KHUSUS PARU KELAS A</option>
+                                                                    <option value="RKT">RS KHUSUS TULANG KELAS A</option>
+                                                                    <option value="RKU">RS KHUSUS OTAK KELAS A</option>
+                                                                    <option value="RSA">RSU KELAS A</option>
+                                                                    <option value="RSB">RSU KELAS B</option>
+                                                                    <option value="RSC">RSU KELAS C</option>
+                                                                    <option value="RSD">RSU KELAS D</option>
+                                                                    <option value="SHD">KLINIK UTAMA KHUSUS HEMODIALISA</option>
+                                                                    <option value="SKB">KLINIK UTAMA KHUSUS BEDAH</option>
+                                                                    <option value="SKC">KLINIK UTAMA KHUSUS JANTUNG</option>
+                                                                    <option value="SKF">KLINIK UTAMA KHUSUS INFEKSI</option>
+                                                                    <option value="SKG">KLINIK UTAMA KHUSUS GIGI DAN MULUT</option>
+                                                                    <option value="SKH">KLINIK UTAMA KHUSUS THT</option>
+                                                                    <option value="SKI">KLINIK UTAMA KHUSUS IBU DAN ANAK</option>
+                                                                    <option value="SKJ">KLINIK UTAMA KHUSUS JIWA</option>
+                                                                    <option value="SKK">KLINIK UTAMA KHUSUS KETERGANTUNGAN OBAT</option>
+                                                                    <option value="SKL">KLINIK UTAMA KHUSUS LAIN</option>
+                                                                    <option value="SKM">KLINIK UTAMA KHUSUS MATA</option>
+                                                                    <option value="SKN">KLINIK UTAMA KHUSUS GINJAL</option>
+                                                                    <option value="SKO">KLINIK UTAMA KHUSUS KANKER (ONKOLOGI)</option>
+                                                                    <option value="SKP">KLINIK UTAMA KHUSUS PARU</option>
+                                                                    <option value="SKT">KLINIK UTAMA KHUSUS TULANG</option>
+                                                                    <option value="SKU">KLINIK UTAMA KHUSUS OTAK</option>
+                                                                    <option value="UDU">DOKTER PRAKTIK MANDIRI</option>
+                                                            </select>
+                            <div id="notJnsForm"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3"><label>* Nama Faskes</label></div>
+                        <div class="col-sm-3">
+                            <input maxlength="10" type="text" id="nmfaskes" class="form-control input-sm search-input-text" placeholder="Nama Faskes" name="nmfaskes" data-column="3">
+                            <div id="notNmFaskes"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-success">
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table id="result" class="table table-hover table-bordered table-striped dataTables" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Tanggal Pengajuan</th>
+                                <th>Nama Faskes</th>
+                                <th>Kode Registrasi</th>
+                                <th>Jenis Faskes</th>
+                                <th>Workflow Step</th>
+                                <th>Jumlah Hari Proses</th>
+                                <th>Detail Data</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 40px;"></div>
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+    <div class="container" style="padding-top: 10px;">
+        <div class="navbar-left">
+            <p style="text-align: right; font-size: 12px;">
+               &#169; BPJS Kesehatan 2018 
+            </p>
+        </div>
+        <div class="navbar-right">
+            <p style="text-align: right; font-size: 10px;">
+            Page rendered in <strong>0.2045</strong> seconds.
+            Memory Usage <strong>4.84MB</strong>
+            </p>
+        </div>
+    </div>
+</nav></body>
+<script type="text/javascript">
+    $('select').select2({
+        placeholder: "--Pilih--",
+        allowClear: true
+    });
+
+    var dataTable = $('#result').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "dom": '<"top"l>rt<"bottom"ip><"clear">',
+        "ajax": {
+            "url": "https://hfis.bpjs-kesehatan.go.id/hfis/MonitoringPendaftaran/listdatadaftarfaskes",
+            "dataType": "json",
+            "type": "POST",
+            "data": {
+                'ci_csrf_token': '',
+                // dati2: dati2,
+                // jnsfaskes: jnsfaskes,
+                // nmfaskes: nmfaskes
+            }
+        },
+        "columns": [{
+                "data": "No",
+                "orderable": false
+            },
+            {
+                "data": "FDate"
+            },
+            {
+                "data": "NMPPK"
+            },
+            {
+                "data": "KDREG"
+            },
+            {
+                "data": "NMJNSPPK"
+            },
+            {
+                "data": "WF_STEP"
+            },
+            {
+                "data": "TOTAL_HARI"
+            },
+            {
+                "data": "proses",
+                "orderable": false
+            },
+        ]
+    });
+
+    $('.search-input-text').on('keyup', function() { // for text boxes
+        var i = $(this).attr('data-column'); // getting column index
+        var v = $(this).val(); // getting search input value
+        dataTable.columns(i).search(v).draw();
+    });
+    $('.search-input-select').on('change', function() { // for select box
+        var i = $(this).attr('data-column');
+        var v = $(this).val();
+        dataTable.columns(i).search(v).draw();
+    });
+
+    $("#prop").change(function() {
+        var prop = $("#prop").select2("val");
+        $.ajax({
+            type: "POST",
+            url: "https://hfis.bpjs-kesehatan.go.id/hfis/MonitoringPendaftaran/getKabupaten/" + prop,
+            beforeSend: function() {
+                showLoading();
+            },
+            dataType: "json",
+            success: function(msg) {
+                hideLoading();
+                $("#dati2").select2("val", "");
+                $("#dati2").empty();
+                $("#dati2").append("<option value=\'\'></option>");
+                $.each(msg, function(index, dati) {
+                    $("#dati2").append("<option value=\'" + dati.KDDATI2 + "\'>" + dati.NMDATI2 + "</option>");
+                });
+            }
+        });
+    });
+</script>
+
+
+<!-- Mirrored from hfis.bpjs-kesehatan.go.id/hfis/MonitoringPendaftaran/dataFaskesTerdaftar by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 07 Feb 2024 16:29:47 GMT -->
+</html>

@@ -1,0 +1,48 @@
+/* CSS used here will be applied after bootstrap.css */
+
+/* Create a medium height at 40px */
+.navbar-md {min-height:40px; position: fixed;}
+.navbar-md .navbar-brand,
+.navbar-md .navbar-nav>li>a {padding-top:10px; padding-bottom:10px}
+.navbar-md .navbar-brand {height: 40px}  
+.navbar-md .navbar-toggle {margin: 6px 12px 6px 0px; padding: 6px 7px 6px 7px;}
+.navbar-md .navbar-toggle .icon-bar {width: 19px;}
+
+
+/* Create a small height at 30px */
+.navbar-sm {min-height:30px}
+.navbar-sm .navbar-brand,
+.navbar-sm .navbar-nav>li>a {padding-top:5px; padding-bottom:5px}
+.navbar-sm .navbar-brand {height: 30px}
+.navbar-sm .navbar-toggle {margin: 3px 9px 3px 0px; padding: 4px 4px 4px 4px;}
+.navbar-sm .navbar-toggle .icon-bar {width: 16px;}
+
+.processMessage
+{
+    position: fixed;
+    top: 39%;
+    left: 41%;
+    padding: 10px;
+    width: 20%;
+    z-index: 1001;
+    background-color: #fff;
+    /*border: outset 3px #6389ab;*/
+}
+.progressBackgroundFilter
+{
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    background-color: Gray;
+    filter: alpha(opacity=60);
+    opacity: 0.60;
+    z-index: 1000;
+}
+
+
+

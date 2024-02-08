@@ -1,0 +1,144 @@
+p{
+  padding: 0;
+  margin: 0;
+}
+div.article{
+  /* to centre page on screen*/
+  margin-left: auto;
+  margin-right: auto;
+  
+  width: 170mm;
+  font-size:12.0pt;
+  font-family:"Bookman Old Style";
+}
+/*}*/
+input{
+  border: none;
+  background-color: #F8F8F8;
+  /*background-color: #00FF00;*/
+}
+
+ol.upper-roman{
+  list-style-type:upper-roman;
+  padding-left: 22px;
+}
+ol.lower-alpha{
+  list-style-type:lower-alpha;
+  padding-left: 22px;
+}
+ol.upper-alpha{
+  list-style-type:upper-alpha;
+  padding-left: 22px;
+}
+ol.decimal-leading-zero{
+  list-style-type:decimal-leading-zero;
+  padding-left: 22px;
+}
+ol.decimal{
+  list-style-type:decimal;
+  padding-left: 22px;
+}
+
+/*ol.decimal li{
+  margin-bottom: 15px;
+}*/
+
+ul.mdash-list
+{  
+  list-style-position:outside;  
+  list-style-type:none;  
+  margin-left:0;  
+  padding-left:0.5em;  
+}
+ul.mdash-list li:before{ content:"-"; position:relative; left:-5px;}
+ul.mdash-list{ text-indent:-5px; }
+
+ul.mdash-tbl
+{  
+  list-style-position:outside;  
+  list-style-type:none;  
+  margin-left:0;  
+  padding-left:1em;
+}
+ul.mdash-tbl li:before{ content:"-"; position:relative; left:-5px; }
+ul.mdash-tbl{ text-indent:0px; }
+
+/*fieldset {*/
+  /*background-color: #F5F5F5;*/
+  /*border: 1px solid #CCCCCC;*/
+  /*border: none;
+ border-radius: 5px;
+  clear: both;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  position: relative;
+  width: 95%;
+}*/
+
+.form-item-right {
+  clear: both;
+  margin-bottom: 5px;
+  text-align: right;
+}
+
+.pagebreak{page-break-after:always;display:block;bottom:0}
+
+ol.kurung {
+  counter-reset: list;
+}
+ol.kurung {
+  list-style: none; padding-left:22px
+}
+ol.kurung li div#a:before {
+  content: "("counter(list, decimal) ")";
+  counter-increment: list;position:relative; left:-5px;
+}
+ol.kurung { text-indent:-20px; }
+
+
+ol.tutupkurung {
+  counter-reset: list;
+}
+ol.tutupkurung {
+  list-style: none; padding-left:22px
+}
+ol.tutupkurung li div#b:before {
+  content: counter(list, decimal) ")";
+  counter-increment: list; position:relative; left:-5px;  }
+
+ol.tutupkurung li div#c:before {
+  content: counter(list,);
+  counter-increment: list; position:relative; left:-5px;}
+
+ol.tutupkurung { text-indent:-20px; }
+
+ol.tutupkurung2 {
+  counter-reset: list;
+}
+ol.tutupkurung2 {
+  list-style: none; padding-left:22px
+}
+ol.tutupkurung2 li div#a:before {
+  content: counter(list, lower-alpha) ")";
+  counter-increment: list;position:relative; left:-10px;
+}
+
+ol.tutupkurung2 { text-indent:-16px; }
+
+ol.lower-alpha {list-style-type:lower-alpha;padding-left:22px}
+ol.a {list-style-type:lower-alpha;padding-left:22px;text-indent:0px}
+ol.a li {position:relative; left:-5px;}
+
+.dateicon {
+	display: inline;
+  	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+	background: url(../img/date.jpg) no-repeat;
+  	width: 12px; /* Width of new image */
+  	height: 12px; /* Height of new image */
+  	padding-left: 22px; /* Equal to width of new image */
+	vertical-align:middle;
+	cursor:pointer;
+}
+
